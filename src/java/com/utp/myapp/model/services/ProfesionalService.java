@@ -32,6 +32,7 @@ public class ProfesionalService {
         Profesional profesional = profesionalDAO.listById(profesionalId);
         if (profesional == null) {
             return null;
+            
         }
         Usuario usuario = usuarioDAO.listById(profesional.getUsuarioId());
         // Aquí también se buscarían las listas de categorías y habilidades del profesional
