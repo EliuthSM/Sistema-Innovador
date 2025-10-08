@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/model/dao/UsuarioDAO.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/model/repositories/IUsuarioRepository.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/model/repositories/ICRUD.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/model/dao/ProfesionalDAO.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/model/dao/ClienteDAO.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/model/dao/SolicitudDAO.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/model/entities/Cliente.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/model/dao/CategoriaDAO.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/model/dao/CalificacionDAO.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/mappers/CalificacionMapper.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/dtos/UsuarioDTOResponse.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/dtos/ProfesionalDTORequest.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/dtos/ClienteDTORequest.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/dtos/SolicitudDTORequest.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/dtos/CategoriaDTORequest.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/dtos/CalificacionDTORequest.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/dtos/ComprobantePagoDTORequest.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/dtos/ProfesionalDTOResponse.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/dtos/ClienteDTOResponse.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/dtos/SolicitudDTOResponse.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/dtos/CategoriaDTOResponse.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/dtos/CalificacionDTOResponse.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/mappers/UsuarioMapper.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/mappers/CategoriaMapper.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/controllers/ProfesionalController.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/model/entities/Calificacion.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/model/entities/Categoria.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/mappers/SolicitudMapper.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/model/entities/Solicitud.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/mappers/ClienteMapper.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/mappers/ProfesionalMapper.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/model/entities/Profesional.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/controllers/CalificacionController.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/model/services/ClienteService.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/model/services/ProfesionalService.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/model/services/CategoriaService.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/model/services/SolicitudService.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/model/services/CalificacionService.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/model/services/ComprobantePagoService.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/controllers/UsuarioController.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/controllers/CategoriaController.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/model/entities/Usuario.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/model/entities/Administrador.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/src/java/com/utp/myapp/controllers/SolicitudController.java</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/web/register.jsp</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/web/index.jsp</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/web/login.jsp</file>
+            <file>file:/E:/escritorio/Sistema-Innovador/web/perfilProfesional.jsp</file>
+        </group>
+    </open-files>
+</project-private>
