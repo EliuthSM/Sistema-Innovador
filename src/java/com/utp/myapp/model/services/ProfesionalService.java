@@ -26,6 +26,7 @@ public class ProfesionalService {
                 .map(ProfesionalMapper::toCardResponse)
                 .collect(Collectors.toList());*/
     }
+    
 
     public ProfesionalDetailResponseDTO obtenerPerfilDetallado(int profesionalId) {
         Profesional profesional = profesionalDAO.listById(profesionalId);
