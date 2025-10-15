@@ -1,0 +1,20 @@
+
+<header>
+    <nav>
+        <div class="logo" style="cursor: pointer" onclick="location.href = 'index.jsp'">ProfiNet</div>
+        <ul class="nav-links">
+            <li><a href="index.jsp">Inicio</a></li>
+            <li><a href="contentProfesional.jsp">Profesionales</a></li>
+            <li><a href="contentCliente.jsp">Clientes</a></li>
+        </ul>
+
+        <div id="userInfo" class="user-info">
+            <div class="user-dropdown">
+                <span class="user-avatar"></span>
+                <span class="user-name">${sessionScope.nombreUsuario}</span>
+                <span class="user-role">(${sessionScope.rolUsuario})</span>
+                <button class="btn btn-outline" onclick="location.href = 'logout.jsp'">Cerrar Sesión</button>
+            </div>
+        </div>
+    </nav>
+</header>

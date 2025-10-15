@@ -7,48 +7,53 @@ import com.utp.myapp.model.entities.Usuario;
 
 public class UsuarioMapper {
 
-    // --- De DTO Request a Entidad ---
+// --- De DTO Request a Entidad ---
+    /**
+     * Convierte un RegistroClienteRequestDTO a una entidad Usuario. La
+     * contraseñaHash se asigna posteriormente en el Service.
+     */
     public static Usuario fromClienteRequest(RegistroClienteRequestDTO request) {
         if (request == null) {
             return null;
         }
 
-        // Aquí iría el hash de la contraseña
-        // String hashedPassword = SecurityUtil.hashPassword(request.getContrasena());
+        // NOTA: La contraseña no se setea aquí, se setea como HASH en el Service.
         return new Usuario.Builder()
                 .nombreCompleto(request.getNombreCompleto())
                 .correoElectronico(request.getCorreo())
-                .contrasenaHash(request.getContrasena()) // Temporalmente en texto plano
-                .rol("Cliente")
+                // .contrasenaHash(request.getContrasena()) <--- ELIMINADO: Se maneja en el Service
+                .rol("Cliente") // Establece el rol automáticamente
                 .build();
     }
 
+    /**
+     * Convierte un RegistroProfesionalRequestDTO a la entidad Usuario base. La
+     * contraseñaHash se asigna posteriormente en el Service.
+     */
     public static Usuario fromProfesionalRequestToUsuario(RegistroProfesionalRequestDTO request) {
         if (request == null) {
             return null;
         }
 
+        // NOTA: La contraseña no se setea aquí, se setea como HASH en el Service.
         return new Usuario.Builder()
                 .nombreCompleto(request.getNombreCompleto())
                 .correoElectronico(request.getCorreo())
-                .contrasenaHash(request.getContrasena()) // Temporalmente en texto plano
-                .rol("Profesional")
+                // .contrasenaHash(request.getContrasena()) <--- ELIMINADO: Se maneja en el Service
+                .rol("Profesional") // Establece el rol automáticamente
                 .build();
     }
 
-    // --- De Entidad a DTO Response ---
-    public static UsuarioResponseDTO toResponse(Usuario usuario) {
-        if (usuario == null) {
-            return null;
-        }
-        UsuarioResponseDTO dto = new UsuarioResponseDTO();
-        dto.setUsuarioId(usuario.getUsuarioId());
-        dto.setNombreCompleto(usuario.getNombreCompleto());
-        dto.setCorreo(usuario.getCorreoElectronico());
-        dto.setRol(usuario.getRol());
-        dto.setFechaRegistro(usuario.getFechaRegistro());
-        return dto;
+// --- De Entidad a DTO Response ---
 
-    }
-
+    /*public static UsuarioResponseDTO toResponse(Usuario usuario) {
+        if (usuario == null) return null;
+        
+        return new UsuarioResponseDTO(
+                usuario.getUsuarioId(),
+                usuario.getNombreCompleto(),
+                usuario.getCorreoElectronico(),
+                usuario.getRol()
+        );
+    }*/
 }

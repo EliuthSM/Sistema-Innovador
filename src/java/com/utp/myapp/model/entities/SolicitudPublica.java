@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 public class SolicitudPublica {
-
     private int solicitudPublicaId;
     private int clienteId;
     private int categoriaId;
@@ -18,80 +17,27 @@ public class SolicitudPublica {
     private String estado;
     private Timestamp fechaPublicacion;
 
-    private SolicitudPublica() {
-    }
-
+    private SolicitudPublica() {}
+    
     public static class Builder {
-
         private final SolicitudPublica solicitud;
-
-        public Builder() {
-            this.solicitud = new SolicitudPublica();
-        }
-
-        public Builder solicitudPublicaId(int id) {
-            this.solicitud.solicitudPublicaId = id;
-            return this;
-        }
-
-        public Builder clienteId(int id) {
-            this.solicitud.clienteId = id;
-            return this;
-        }
-
-        public Builder categoriaId(int id) {
-            this.solicitud.categoriaId = id;
-            return this;
-        }
-
-        public Builder titulo(String titulo) {
-            this.solicitud.titulo = titulo;
-            return this;
-        }
-
-        public Builder descripcion(String descripcion) {
-            this.solicitud.descripcion = descripcion;
-            return this;
-        }
-
-        public Builder presupuestoMin(BigDecimal min) {
-            this.solicitud.presupuestoMin = min;
-            return this;
-        }
-
-        public Builder presupuestoMax(BigDecimal max) {
-            this.solicitud.presupuestoMax = max;
-            return this;
-        }
-
-        public Builder urgencia(String urgencia) {
-            this.solicitud.urgencia = urgencia;
-            return this;
-        }
-
-        public Builder ubicacion(String ubicacion) {
-            this.solicitud.ubicacion = ubicacion;
-            return this;
-        }
-
-        public Builder plazoEntrega(String plazo) {
-            this.solicitud.plazoEntrega = plazo;
-            return this;
-        }
-
-        public Builder estado(String estado) {
-            this.solicitud.estado = estado;
-            return this;
-        }
-
-        public Builder fechaPublicacion(Timestamp fecha) {
-            this.solicitud.fechaPublicacion = fecha;
-            return this;
-        }
-
-        public SolicitudPublica build() {
-            return this.solicitud;
-        }
+        
+        public Builder() { this.solicitud = new SolicitudPublica(); }
+        
+        public Builder solicitudPublicaId(int id) { this.solicitud.solicitudPublicaId = id; return this; }
+        public Builder clienteId(int id) { this.solicitud.clienteId = id; return this; }
+        public Builder categoriaId(int id) { this.solicitud.categoriaId = id; return this; }
+        public Builder titulo(String titulo) { this.solicitud.titulo = titulo; return this; }
+        public Builder descripcion(String descripcion) { this.solicitud.descripcion = descripcion; return this; }
+        public Builder presupuestoMin(BigDecimal min) { this.solicitud.presupuestoMin = min; return this; }
+        public Builder presupuestoMax(BigDecimal max) { this.solicitud.presupuestoMax = max; return this; }
+        public Builder urgencia(String urgencia) { this.solicitud.urgencia = urgencia; return this; }
+        public Builder ubicacion(String ubicacion) { this.solicitud.ubicacion = ubicacion; return this; }
+        public Builder plazoEntrega(String plazo) { this.solicitud.plazoEntrega = plazo; return this; }
+        public Builder estado(String estado) { this.solicitud.estado = estado; return this; }
+        public Builder fechaPublicacion(Timestamp fecha) { this.solicitud.fechaPublicacion = fecha; return this; }  
+        
+        public SolicitudPublica build() { return this.solicitud; }
     }
 
     public int getSolicitudPublicaId() {
@@ -189,5 +135,8 @@ public class SolicitudPublica {
     public void setFechaPublicacion(Timestamp fechaPublicacion) {
         this.fechaPublicacion = fechaPublicacion;
     }
-
+    
+    
+    
+    
 }

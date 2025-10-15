@@ -22,75 +22,69 @@ public class UsuarioService {
         this.profesionalDAO = new ProfesionalDAO();
     }
 
-    // LOGIN
     public UsuarioResponseDTO login(String correo, String contrasena) {
-        Usuario usuario = usuarioDAO.buscarPorCorreo(correo);
-        // IMPORTANTE: Aquí se debe comparar la contraseña hasheada, no en texto plano.  
-        // Ejemplo: if (usuario != null && BCrypt.checkpw(contrasena, usuario.getContrasenaHash())) { ... }
-        if (usuario != null && EncriptarClave.verificar(contrasena, usuario.getContrasenaHash())) {
+        Usuario usuario = usuarioDAO.findByCorreo(correo);
 
-            // Convertimos el entity a DTO para enviarlo al AuthController
-            UsuarioResponseDTO dto = new UsuarioResponseDTO();
-            dto.setUsuarioId(usuario.getUsuarioId());
-            dto.setNombreCompleto(usuario.getNombreCompleto());
-            dto.setCorreo(usuario.getCorreoElectronico());
-            dto.setRol(usuario.getRol());
-            dto.setFechaRegistro(usuario.getFechaRegistro());
-            return UsuarioMapper.toResponse(usuario);
+        // IMPORTANTE: Aquí se debe encriptar la contraseña de entrada para compararla con el hash en la BD
+        String contrasenaEncriptada = EncriptarClave.encriptar(contrasena);
+
+        if (usuario != null && usuario.getContrasenaHash().equals(contrasenaEncriptada)) { // Contrasena ya está encriptada
+            return null; //UsuarioMapper.toResponse(usuario); // Retorna el DTO de respuesta
         }
-        return null; // credenciales incorrectas
+        return null; // Login fallido
     }
 
-    public UsuarioResponseDTO registrarCliente(RegistroClienteRequestDTO request) {
+    public UsuarioResponseDTO registrarCliente(RegistroClienteRequestDTO request) throws IllegalArgumentException {
+        // 1. Validación de unicidad de correo
         if (usuarioDAO.existsByCorreo(request.getCorreo())) {
-            throw new IllegalArgumentException("El correo ya está registrado.");
+            throw new IllegalArgumentException("El correo '" + request.getCorreo() + "' ya está registrado.");
         }
-        Usuario nuevoUsuario = UsuarioMapper.fromClienteRequest(request);
 
-        // IMPORTANTE: Hashear la contraseña antes de guardarla.
+        // 2. Mapear DTO a Entidad Usuario
+        Usuario nuevoUsuario = UsuarioMapper.fromClienteRequest(request);
+        
+        // 3. Encriptación de Contraseña (USANDO SHA-256)
         String hashedPassword = EncriptarClave.encriptar(request.getContrasena());
         nuevoUsuario.setContrasenaHash(hashedPassword);
-        // Insertamos el usuario
-        usuarioDAO.insert(nuevoUsuario);
-
-        // Devolvemos el usuario recién creado para obtener su ID
-        Usuario usuarioRegistrado = usuarioDAO.buscarPorCorreo(request.getCorreo());
-        return UsuarioMapper.toResponse(usuarioRegistrado);
+        
+        // 4. Inserción en la base de datos
+        if (usuarioDAO.insert(nuevoUsuario)) {
+             // 5. Opcional: obtener el usuario recién creado para el DTO de respuesta (necesita el ID)
+             Usuario usuarioRegistrado = usuarioDAO.findByCorreo(request.getCorreo());
+             return null; //UsuarioMapper.toResponse(usuarioRegistrado);
+        } else {
+             throw new RuntimeException("Fallo desconocido al insertar el usuario en la BD.");
+        }
     }
 
-    // REGISTRAR PROFESIONAL
-    public UsuarioResponseDTO registrarProfesional(RegistroProfesionalRequestDTO request) {
-        // --- INICIO DE TRANSACCIÓN ---
-        // Esta operación debe ser transaccional. Si algo falla, todo debe revertirse.
+ public UsuarioResponseDTO registrarProfesional(RegistroProfesionalRequestDTO request) {
+        // --- INICIO DE TRANSACCIÓN --- (Idealmente manejado en una capa de transacción)
         if (usuarioDAO.existsByCorreo(request.getCorreo())) {
             throw new IllegalArgumentException("El correo ya está registrado.");
         }
-        // Crear el Usuario base
+
+        // 1. Crear el Usuario base (Hashear clave y establecer Rol='Profesional')
         Usuario nuevoUsuario = UsuarioMapper.fromProfesionalRequestToUsuario(request);
         
-        // Hashear la contraseña antes de guardar
+        // 2. Encriptación de Contraseña (USANDO SHA-256)
         String hashedPassword = EncriptarClave.encriptar(request.getContrasena());
         nuevoUsuario.setContrasenaHash(hashedPassword);
         
-        // Guardar el usuario en la BD
+        // Insertar usuario y obtener el ID generado
         usuarioDAO.insert(nuevoUsuario);
         
-        // Obtener ID del usuario registrado
-        Usuario usuarioRegistrado = usuarioDAO.buscarPorCorreo(request.getCorreo());
-        int nuevoUsuarioId = usuarioRegistrado.getUsuarioId();
+        Usuario usuarioRegistrado = usuarioDAO.findByCorreo(request.getCorreo());
+        int nuevoUsuarioId = usuarioRegistrado.getUsuarioId(); // Se asume que Usuario.java tiene un campo 'usuarioId'
 
-        // Crear el Perfil Profesional
+        // 3. Crear el Perfil Profesional
         Profesional nuevoProfesional = ProfesionalMapper.fromProfesionalRequest(request);
         nuevoProfesional.setUsuarioId(nuevoUsuarioId);
         profesionalDAO.insert(nuevoProfesional);
 
-        // 3. Vincular Categorías y Habilidades (usando sus respectivos DAOs)
-        // profesionalCategoriasDAO.link(nuevoUsuarioId, request.getCategoriaPrincipalId());
-        // for (Integer habilidadId : request.getHabilidadesIds()) {
-        //     profesionalHabilidadesDAO.link(nuevoUsuarioId, habilidadId);
-        // TODO: Vincular categorías y habilidades usando sus DAOs
-        // }
+        // 4. Vincular Categorías y Habilidades (usando sus respectivos DAOs)
+        // Lógica pendiente...
+
         // --- FIN DE TRANSACCIÓN ---
-        return UsuarioMapper.toResponse(usuarioRegistrado);
+        return null; //UsuarioMapper.toResponse(usuarioRegistrado);
     }
 }
