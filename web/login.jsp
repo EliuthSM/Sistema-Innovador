@@ -7,12 +7,12 @@
         <!-- Comportamiento responsivo -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>JSP Page</title>
-        <%@include  file="WEB-INF/jspfCss/loginCss.jspf" %>
-        <%@include  file="WEB-INF/jspfCss/styles.jspf" %>
+        <%@include  file="/WEB-INF/jspfCss/loginCss.jspf" %>
+        <%@include  file="/WEB-INF/jspfCss/styles.jspf" %>
     </head>
     <body>
         <!-- Header -->
-        <%@include  file="WEB-INF/jspf/header.jspf" %>
+        <%@include  file="/WEB-INF/jspf/header.jspf" %>
         <div class="main-content">
             <div class="login-container">
                 <div class="login-header">

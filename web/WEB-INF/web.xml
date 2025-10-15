@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
-    
+	
+    <!-- ============================================ -->
+    <!-- AUTH CONTROLLER (Registro y Login) -->
+    <!-- ============================================ -->
+    <servlet>
+        <servlet-name>AuthController</servlet-name>
+        <servlet-class>com.utp.myapp.controllers.AuthController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AuthController</servlet-name>
+        <url-pattern>/auth</url-pattern>
+    </servlet-mapping>
+
     <!-- ============================================ -->
     <!-- USUARIO CONTROLLER -->
     <!-- ============================================ -->
