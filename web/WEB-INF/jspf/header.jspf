@@ -1,14 +1,16 @@
 
-    <header>
-        <nav>
-            <div class="logo" style="cursor: pointer" onclick="location.href='index.jsp'">ProfiNet</div>
-            <ul class="nav-links">
-                <li><a href="index.jsp">Inicio</a></li>
-                <li><a href="content.jsp">Profesionales</a></li>
-            </ul>
-            <div class="auth-buttons">
-                <button class="btn btn-outline" onclick="location.href='login.jsp'">Iniciar Sesión</button>
-                <button class="btn btn-primary" onclick="location.href='register.jsp'">Registrarse</button>
-            </div>
-        </nav>
-    </header>
+<header>
+    <nav>
+        <div class="logo" style="cursor: pointer" onclick="location.href = 'index.jsp'">ProfiNet</div>
+        <ul class="nav-links">
+            <li><a href="index.jsp">Inicio</a></li>
+            <li><a href="contentProfesional.jsp">Profesionales</a></li>
+            <li><a href="contentCliente.jsp">Clientes</a></li>
+        </ul>
+
+        <div class="auth-buttons">
+            <button class="btn btn-outline" onclick="location.href = 'login.jsp'">Iniciar Sesión</button>
+            <button class="btn btn-primary" onclick="location.href = 'register.jsp'">Registrarse</button>
+        </div>
+    </nav>
+</header>

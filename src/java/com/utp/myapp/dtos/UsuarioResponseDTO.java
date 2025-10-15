@@ -1,15 +1,17 @@
 package com.utp.myapp.dtos;
 
 import java.util.List;
+import java.sql.Timestamp; // o java.time.LocalDateTime si prefieres
 
 public class UsuarioResponseDTO {
+
     private Integer UsuarioId;
     // Datos de Usuario
     private String nombreCompleto;
     private String correo;
     private String contrasena;
     private String telefono;
-    
+
     // Datos de Profesional
     private String ubicacion;
     private String titulo;
@@ -17,10 +19,13 @@ public class UsuarioResponseDTO {
     private String descripcionServicios;
     private int categoriaPrincipalId;
     private List<Integer> habilidadesIds;
-    
+
     private String rol;
 
-    public UsuarioResponseDTO() {}
+    private Timestamp fechaRegistro; //  NUEVO
+
+    public UsuarioResponseDTO() {
+    }
 
     // Constructor completo
     public UsuarioResponseDTO(String nombreCompleto, String correo, String contrasena, String telefono, String ubicacion, String titulo, int anosExperiencia, String descripcionServicios, int categoriaPrincipalId, List<Integer> habilidadesIds) {
@@ -58,6 +63,14 @@ public class UsuarioResponseDTO {
 
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
+    }
+
+    public Timestamp getFechaRegistro() {
+        return fechaRegistro;
+    }
+
+    public void setFechaRegistro(Timestamp fechaRegistro) {
+        this.fechaRegistro = fechaRegistro;
     }
 
     public String getTelefono() {
@@ -131,9 +144,5 @@ public class UsuarioResponseDTO {
     public void setRol(String rol) {
         this.rol = rol;
     }
-    
-    
-    
-    
-    
+
 }

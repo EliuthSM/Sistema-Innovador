@@ -3,12 +3,14 @@ package com.utp.myapp.dtos;
 import java.util.List;
 
 public class RegistroProfesionalRequestDTO {
+
     // Datos de Usuario
     private String nombreCompleto;
     private String correo;
     private String contrasena;
     private String telefono;
-    
+    private String rol;
+
     // Datos de Profesional
     private String ubicacion;
     private String titulo;
@@ -17,14 +19,16 @@ public class RegistroProfesionalRequestDTO {
     private int categoriaPrincipalId;
     private List<Integer> habilidadesIds;
 
-    public RegistroProfesionalRequestDTO() {}
+    public RegistroProfesionalRequestDTO() {
+    }
 
     // Constructor completo
-    public RegistroProfesionalRequestDTO(String nombreCompleto, String correo, String contrasena, String telefono, String ubicacion, String titulo, int anosExperiencia, String descripcionServicios, int categoriaPrincipalId, List<Integer> habilidadesIds) {
+    public RegistroProfesionalRequestDTO(String nombreCompleto, String correo, String contrasena, String telefono, String rol, String ubicacion, String titulo, int anosExperiencia, String descripcionServicios, int categoriaPrincipalId, List<Integer> habilidadesIds) {
         this.nombreCompleto = nombreCompleto;
         this.correo = correo;
         this.contrasena = contrasena;
         this.telefono = telefono;
+        this.rol = rol;
         this.ubicacion = ubicacion;
         this.titulo = titulo;
         this.anosExperiencia = anosExperiencia;
@@ -63,6 +67,14 @@ public class RegistroProfesionalRequestDTO {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
     public String getUbicacion() {
@@ -112,7 +124,5 @@ public class RegistroProfesionalRequestDTO {
     public void setHabilidadesIds(List<Integer> habilidadesIds) {
         this.habilidadesIds = habilidadesIds;
     }
-    
-    
-    
+
 }

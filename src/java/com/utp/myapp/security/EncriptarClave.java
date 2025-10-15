@@ -14,10 +14,11 @@ import java.nio.charset.StandardCharsets;
  */
 public class EncriptarClave {
 
+    // Genera hash SHA-256
     public static String encriptar(String input) {
         try {
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            byte[] hash = digest.digest(input.getBytes(StandardCharsets.UTF_8));
+            java.security.MessageDigest digest = java.security.MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(input.getBytes(java.nio.charset.StandardCharsets.UTF_8));
             StringBuilder hexString = new StringBuilder();
             for (byte b : hash) {
                 String hex = Integer.toHexString(0xff & b);
@@ -27,8 +28,13 @@ public class EncriptarClave {
                 hexString.append(hex);
             }
             return hexString.toString();
-        } catch (NoSuchAlgorithmException e) {
+        } catch (java.security.NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
     }
+    // Verifica si la contraseña ingresada coincide con el hash guardado
+    public static boolean verificar(String claveIngresada, String hashGuardado) {
+        String hashIngresado = encriptar(claveIngresada);
+        return hashIngresado.equals(hashGuardado);
+  }
 }

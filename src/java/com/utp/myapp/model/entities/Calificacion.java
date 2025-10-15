@@ -3,6 +3,7 @@ package com.utp.myapp.model.entities;
 import java.sql.Timestamp;
 
 public class Calificacion {
+
     private int calificacionId;
     private int profesionalId;
     private int clienteId;
@@ -11,18 +12,37 @@ public class Calificacion {
     private String comentario;
     private Timestamp fechaCalificacion;
 
-    private Calificacion() {}
+    private Calificacion() {
+    }
 
-    
     public static class Builder {
+
         private final Calificacion calificacion;
-        
-        public Builder() { this.calificacion = new Calificacion(); }
-        
-        public Builder calificacionId(int id) { this.calificacion.calificacionId = id; return this; }
-        public Builder profesionalId(int id) { this.calificacion.profesionalId = id; return this; }
-        public Builder clienteId(int id) { this.calificacion.clienteId = id; return this; }
-        public Builder solicitudId(int id) { this.calificacion.solicitudId = id; return this; }
+
+        public Builder() {
+            this.calificacion = new Calificacion();
+        }
+
+        public Builder calificacionId(int id) {
+            this.calificacion.calificacionId = id;
+            return this;
+        }
+
+        public Builder profesionalId(int id) {
+            this.calificacion.profesionalId = id;
+            return this;
+        }
+
+        public Builder clienteId(int id) {
+            this.calificacion.clienteId = id;
+            return this;
+        }
+
+        public Builder solicitudId(int id) {
+            this.calificacion.solicitudId = id;
+            return this;
+        }
+
         public Builder puntuacion(int puntos) {
             if (puntos < 1 || puntos > 5) {
                 throw new IllegalArgumentException("La puntuación debe estar entre 1 y 5.");
@@ -30,10 +50,20 @@ public class Calificacion {
             this.calificacion.puntuacion = puntos;
             return this;
         }
-        public Builder comentario(String comentario) { this.calificacion.comentario = comentario; return this; }
-        public Builder fechaCalificacion(Timestamp fecha) { this.calificacion.fechaCalificacion = fecha; return this; }
-        
-        public Calificacion build() { return this.calificacion; }
+
+        public Builder comentario(String comentario) {
+            this.calificacion.comentario = comentario;
+            return this;
+        }
+
+        public Builder fechaCalificacion(Timestamp fecha) {
+            this.calificacion.fechaCalificacion = fecha;
+            return this;
+        }
+
+        public Calificacion build() {
+            return this.calificacion;
+        }
     }
 
     public int getCalificacionId() {
@@ -91,7 +121,5 @@ public class Calificacion {
     public void setFechaCalificacion(Timestamp fechaCalificacion) {
         this.fechaCalificacion = fechaCalificacion;
     }
-    
-    
-    
+
 }
